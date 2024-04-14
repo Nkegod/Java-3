@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link rel="shortcut icon" href="./Phone.jpeg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <div class="d-flex h-100  py-5 gap-2 mx-5 ps-5 align-self-center"
+        style="width: 50%; background-color: rgb(210, 219, 224); margin: auto!important; margin-top: 5rem!important;">
+
+        <div class="picture " style="width: 24rem;">
+            <img src="./Phone.jpeg" class="img-fluid img-thumbnail" alt="">
+        </div>
+        <div class=" ps-2" style="width: 23rem;">
+            <section class="fw-bold fs-4 text-uppercase">Workers Day Phones Giveaway</section>
+            <section class="fw-bold">Giveaway ends on May 1 2024</section>
+            <div>To qualify, you need to prove your eligibility by providing
+                prove that you are 100% obidient and did not vote Apc.
+            </div>
+
+            <div class="mt-3">
+                <div class="days float-start btn btn-dark me-2">2</div>
+                <div class="hours float-start btn btn-dark me-2">3</div>
+                <div class="minutes float-start btn btn-dark me-2">4</div>
+                <div class="seconds float-start btn btn-dark">5</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //Getting the dates div
+        let days = document.querySelector('.days');
+        let hours = document.querySelector('.hours');
+        let minutes = document.querySelector('.minutes');
+        let seconds = document.querySelector('.seconds');
+
+        const futureDate = new Date('May, 1, 2024, 17:59:59').getTime();
+        console.log(new Date());
+
+        let x = setInterval(() => {
+            let now = new Date().getTime();
+
+            // distance between now and the future
+            let distance = futureDate - now;
+
+            //calculate the days, hours and minutes
+            let setDays = Math.floor(distance / (1000 * 60 * 60 * 24));
+            days.innerHTML = "<strong>" + setDays + "</strong>" + '<br> Days';
+
+            // The seconds
+            let setSeconds = Math.floor(distance % (1000 * 60) / 1000);
+            seconds.innerHTML = "<strong>" + setSeconds + "</strong>" + "<br> Sec";
+
+            //The Hours
+            let setHours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+            hours.innerHTML = "<strong>" + setHours + "</strong>" + '<br> Hrs';
+
+
+            //The Minutes
+            let setMinutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            minutes.innerHTML = `<strong> ${setMinutes} </strong> <br> Mins`
+
+
+        }, 1000);
+
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
